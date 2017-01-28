@@ -11,7 +11,15 @@
         }
     ],
     "require": {
-        "illuminate/eloquent": "~4.0|~5.0",
+        "illuminate/database": "~4.0|~5.0",
         "illuminate/encryption": "~4.0|~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MartinBean\\Eloquent\\": "src/"
+        }
     }
 }

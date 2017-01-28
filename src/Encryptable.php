@@ -26,8 +26,8 @@ trait Encryptable
     {
         $value = parent::getAttribute($key);
 
-        if (in_array($key, $this->getEncryptable())) {
-            $value = Crypt::decrypt($value);
+        if (in_array($key, $this->getEncryptable()) && ! empty($value)) {
+            $value = $this->getEncrypter()->decrypt($value);
         }
 
         return $value;
@@ -42,10 +42,20 @@ trait Encryptable
      */
     public function setAttribute($key, $value)
     {
-        if (in_array($key, $this->getEncryptable())) {
-            $value = Crypt::encrypt($value);
+        if (in_array($key, $this->getEncryptable()) && ! empty($value)) {
+            $value = $this->getEncrypter()->encrypt($value);
         }
 
         return parent::setAttribute($key, $value);
+    }
+
+    /**
+     * Get the encrypter service.
+     *
+     * @return \Illuminate\Encryption\Crypt
+     */
+    protected function getEncrypter()
+    {
+        return Crypt::getFacadeRoot();
     }
 }
