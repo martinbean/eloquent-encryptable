@@ -1,0 +1,17 @@
+{
+    "name": "martinbean/eloquent-encryptable",
+    "description": "Adds encryptable attributes to Eloquent models, for storing sensitive data.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Bean",
+            "email": "martin@martinbean.co.uk",
+            "homepage": "http://martinbean.co.uk"
+        }
+    ],
+    "require": {
+        "illuminate/eloquent": "~4.0|~5.0",
+        "illuminate/encryption": "~4.0|~5.0"
+    }
+}
